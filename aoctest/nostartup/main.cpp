@@ -19,9 +19,9 @@ Init(void)
 	UserPatch = (AoC && *(int*)0x0051A3B8 == 0x002A6674);
 
 	if(AoK)
-		Patch<byte>(0x0047B42C + 1, 0x9C);
+		Patch(0x0047B42C + 1, (BYTE)0x9C);
 	else if(AoC)
-		Patch<byte>(0x00586F5E + 1, 0xAC);
+		Patch(0x00586F5E + 1, (BYTE)0xAC);
 }
 
 BOOL WINAPI

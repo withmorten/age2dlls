@@ -10,6 +10,9 @@
 #define NOVMT __declspec(novtable)
 #define SETVMT(a) *((DWORD_PTR*)this) = (DWORD_PTR)a
 
+#define RET(n)	__asm push	n __asm retn
+#define ASM(name) void __declspec(naked) name(void)
+
 enum
 {
 	PATCH_CALL,

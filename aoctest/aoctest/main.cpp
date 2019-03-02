@@ -1,4 +1,5 @@
 #include <windows.h>
+#include <stdio.h>
 #include <stdint.h>
 #include <assert.h>
 typedef uintptr_t addr;
@@ -18,13 +19,15 @@ Init(void)
 	AoC = (*(int*)0x006146F0 == 0x042474FF);
 	UserPatch = (AoC && *(int*)0x0051A3B8 == 0x002A6674);
 
-	if (AoC && UserPatch)
+	if (AoC)
 	{
-		// Random Button, 0x0B is same font as most of menu but 0x0A looks better
-		Patch(0x007AE806 + 1, (BYTE)0x0A);
-
-		// Reset Button
-		Patch(0x007AF0B7 + 1, (BYTE)0x0A);
+		// Patch(0x00586F65 + 1, (BYTE)0x9C); // full_screen
+		// Patch(0x00586F73 + 1, (BYTE)0x9C); // use_dir_draw
+		// Patch(0x00586FDB + 8, (BYTE)0x00); // interface_style
+		// Patch(0x00586F7A + 1, (BYTE)0xAC); // use_sys_mem
+		// Patch(0x00586F6C + 1, (BYTE)0x9C);
+		// Patch(0x00586E93 + 1, 768);
+		// Patch(0x00586EB9 + 1, 1024);
 	}
 }
 

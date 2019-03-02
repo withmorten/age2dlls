@@ -55,7 +55,7 @@ int AoK, AoC, UserPatch;
 uchar colmap[256];
 
 void
-ShapeForallPixels(TShape *slp, uchar(*colmap)[256])
+ShapeForallPixels(TShape *slp, uchar (*colmap)[256])
 {
 	short *outline;
 	int* cmdtable;
@@ -227,112 +227,113 @@ TShape::btnctor(char *name, int id)
 void
 PatchButtons(void)
 {
-	Patch<int>(0x00517062 + 1, 50753); // aok button slp
+	Patch(0x00517062 + 1, 50753); // aok button slp
 	InjectHook(0x0051706E, &TShape::btnctor);
 
 	// button type
-	Patch<byte>(0x0051765F + 1, 6);
-	Patch<byte>(0x00517721 + 1, 6);
-	Patch<byte>(0x005177E0 + 1, 6);
-	Patch<byte>(0x0051789F + 1, 6);
-	Patch<byte>(0x00517960 + 1, 6);
+	Patch(0x0051765F + 1, (BYTE)6);
+	Patch(0x00517721 + 1, (BYTE)6);
+	Patch(0x005177E0 + 1, (BYTE)6);
+	Patch(0x0051789F + 1, (BYTE)6);
+	Patch(0x00517960 + 1, (BYTE)6);
 
 	// AoC hardcoded resolutions
 	// 1280
-	Patch<int>(0x0051A658 + 1, 1280 - 63);
-	Patch<byte>(0x0051A650 + 1, 17);
-	Patch<byte>(0x0051A654 + 1, 6);
+	Patch(0x0051A658 + 1, 1280 - 63);
+	Patch(0x0051A650 + 1, (BYTE)17);
+	Patch(0x0051A654 + 1, (BYTE)6);
 
-	Patch<int>(0x0051A642 + 1, 1280 - 122);
-	Patch<byte>(0x0051A63A + 1, 17);
-	Patch<byte>(0x0051A63E + 1, 6);
+	Patch(0x0051A642 + 1, 1280 - 122);
+	Patch(0x0051A63A + 1, (BYTE)17);
+	Patch(0x0051A63E + 1, (BYTE)6);
 
-	Patch<int>(0x0051A62C + 1, 1280 - 182);
-	Patch<byte>(0x0051A626 + 1, 17);
-	Patch<byte>(0x0051A62A + 1, 6);
+	Patch(0x0051A62C + 1, 1280 - 182);
+	Patch(0x0051A626 + 1, (BYTE)17);
+	Patch(0x0051A62A + 1, (BYTE)6);
 
-	Patch<int>(0x0051A616 + 1, 1280 - 242);
-	Patch<byte>(0x0051A60E + 1, 17);
-	Patch<byte>(0x0051A612 + 1, 6);
+	Patch(0x0051A616 + 1, 1280 - 242);
+	Patch(0x0051A60E + 1, (BYTE)17);
+	Patch(0x0051A612 + 1, (BYTE)6);
 
-	Patch<int>(0x0051A600 + 1, 1280 - 302);
-	Patch<byte>(0x0051A5F8 + 1, 17);
-	Patch<byte>(0x0051A5FC + 1, 6);
+	Patch(0x0051A600 + 1, 1280 - 302);
+	Patch(0x0051A5F8 + 1, (BYTE)17);
+	Patch(0x0051A5FC + 1, (BYTE)6);
 
 	// 1024
-	Patch<int>(0x0051A9C8 + 1, 1024 - 64);
-	Patch<byte>(0x0051A9C0 + 1, 17);
-	Patch<byte>(0x0051A9C4 + 1, 4);
+	Patch(0x0051A9C8 + 1, 1024 - 64);
+	Patch(0x0051A9C0 + 1, (BYTE)17);
+	Patch(0x0051A9C4 + 1, (BYTE)4);
 
-	Patch<int>(0x0051A9B2 + 1, 1024 - 123);
-	Patch<byte>(0x0051A9AA + 1, 17);
-	Patch<byte>(0x0051A9AE + 1, 4);
+	Patch(0x0051A9B2 + 1, 1024 - 123);
+	Patch(0x0051A9AA + 1, (BYTE)17);
+	Patch(0x0051A9AE + 1, (BYTE)4);
 
-	Patch<int>(0x0051A99C + 1, 1024 - 183);
-	Patch<byte>(0x0051A996 + 1, 17);
-	Patch<byte>(0x0051A99A + 1, 4);
+	Patch(0x0051A99C + 1, 1024 - 183);
+	Patch(0x0051A996 + 1, (BYTE)17);
+	Patch(0x0051A99A + 1, (BYTE)4);
 
-	Patch<int>(0x0051A986 + 1, 1024 - 243);
-	Patch<byte>(0x0051A97E + 1, 17);
-	Patch<byte>(0x0051A982 + 1, 4);
+	Patch(0x0051A986 + 1, 1024 - 243);
+	Patch(0x0051A97E + 1, (BYTE)17);
+	Patch(0x0051A982 + 1, (BYTE)4);
 
-	Patch<int>(0x0051A970 + 1, 1024 - 303);
-	Patch<byte>(0x0051A968 + 1, 17);
-	Patch<byte>(0x0051A96C + 1, 4);
+	Patch(0x0051A970 + 1, 1024 - 303);
+	Patch(0x0051A968 + 1, (BYTE)17);
+	Patch(0x0051A96C + 1, (BYTE)4);
 
 	// 800
-	Patch<int>(0x0051AD38 + 1, 800 - 55);
-	Patch<byte>(0x0051AD30 + 1, 17);
-	Patch<byte>(0x0051AD34 + 1, 3);
+	Patch(0x0051AD38 + 1, 800 - 55);
+	Patch(0x0051AD30 + 1, (BYTE)17);
+	Patch(0x0051AD34 + 1, (BYTE)3);
 
-	Patch<int>(0x0051AD22 + 1, 800 - 114);
-	Patch<byte>(0x0051AD1A + 1, 17);
-	Patch<byte>(0x0051AD1E + 1, 3);
+	Patch(0x0051AD22 + 1, 800 - 114);
+	Patch(0x0051AD1A + 1, (BYTE)17);
+	Patch(0x0051AD1E + 1, (BYTE)3);
 
-	Patch<int>(0x0051AD0C + 1, 800 - 174);
-	Patch<byte>(0x0051AD06 + 1, 17);
-	Patch<byte>(0x0051AD0A + 1, 3);
+	Patch(0x0051AD0C + 1, 800 - 174);
+	Patch(0x0051AD06 + 1, (BYTE)17);
+	Patch(0x0051AD0A + 1, (BYTE)3);
 
-	Patch<int>(0x0051ACF6 + 1, 800 - 234);
-	Patch<byte>(0x0051ACEE + 1, 17);
-	Patch<byte>(0x0051ACF2 + 1, 3);
+	Patch(0x0051ACF6 + 1, 800 - 234);
+	Patch(0x0051ACEE + 1, (BYTE)17);
+	Patch(0x0051ACF2 + 1, (BYTE)3);
 
-	Patch<int>(0x0051ACE0 + 1, 800 - 294);
-	Patch<byte>(0x0051ACD8 + 1, 17);
-	Patch<byte>(0x0051ACDC + 1, 3);
+	Patch(0x0051ACE0 + 1, 800 - 294);
+	Patch(0x0051ACD8 + 1, (BYTE)17);
+	Patch(0x0051ACDC + 1, (BYTE)3);
 
-	if (UserPatch) {
-		Patch<int>(0x007C14FB + 1, 4 + 60);
-		Patch<byte>(0x007C14F2 + 1, 17);
+	if (UserPatch)
+	{
+		Patch(0x007C14FB + 1, 4 + 60);
+		Patch(0x007C14F2 + 1, (BYTE)17);
 
-		Patch<int>(0x007C14E1 + 1, 4 + 2 * 60);
-		Patch<byte>(0x007C14D8 + 1, 17);
+		Patch(0x007C14E1 + 1, 4 + 2 * 60);
+		Patch(0x007C14D8 + 1, (BYTE)17);
 
-		Patch<int>(0x007C14C7 + 1, 4 + 3 * 60);
-		Patch<byte>(0x007C14BE + 1, 17);
+		Patch(0x007C14C7 + 1, 4 + 3 * 60);
+		Patch(0x007C14BE + 1, (BYTE)17);
 
-		Patch<int>(0x007C14AD + 1, 4 + 4 * 60);
-		Patch<byte>(0x007C14A4 + 1, 17);
+		Patch(0x007C14AD + 1, 4 + 4 * 60);
+		Patch(0x007C14A4 + 1, (BYTE)17);
 
-		Patch<int>(0x007C1493 + 1, 4 + 5 * 60);
-		Patch<byte>(0x007C148A + 1, 17);
+		Patch(0x007C1493 + 1, 4 + 5 * 60);
+		Patch(0x007C148A + 1, (BYTE)17);
 
 		// and once more ... with footnotes
 
-		Patch<int>(0x007C1100 + 1, 4 + 60);
-		Patch<byte>(0x007C10F7 + 1, 17);
+		Patch(0x007C1100 + 1, 4 + 60);
+		Patch(0x007C10F7 + 1, (BYTE)17);
 
-		Patch<int>(0x007C10E6 + 1, 4 + 2 * 60);
-		Patch<byte>(0x007C10DD + 1, 17);
+		Patch(0x007C10E6 + 1, 4 + 2 * 60);
+		Patch(0x007C10DD + 1, (BYTE)17);
 
-		Patch<int>(0x007C10CC + 1, 4 + 3 * 60);
-		Patch<byte>(0x007C10C3 + 1, 17);
+		Patch(0x007C10CC + 1, 4 + 3 * 60);
+		Patch(0x007C10C3 + 1, (BYTE)17);
 
-		Patch<int>(0x007C10B2 + 1, 4 + 4 * 60);
-		Patch<byte>(0x007C10A9 + 1, 17);
+		Patch(0x007C10B2 + 1, 4 + 4 * 60);
+		Patch(0x007C10A9 + 1, (BYTE)17);
 
-		Patch<int>(0x007C1098 + 1, 4 + 5 * 60);
-		Patch<byte>(0x007C108F + 1, 17);
+		Patch(0x007C1098 + 1, 4 + 5 * 60);
+		Patch(0x007C108F + 1, (BYTE)17);
 	}
 }
 
